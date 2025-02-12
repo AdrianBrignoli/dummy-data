@@ -11,15 +11,15 @@ app.use((req, res, next) => {
   console.log(`User connected: ${req.method} ${req.url}`);
   next(); // Proceed to the next middleware or route handler
 });
-console.log('TJIHOOOOOOOOOOOOOOOOOOOOOOOOOO');
+
 app.use(express.json());
 app.use(cors());
 
 // Use API routes
 app.use('/api', productRoutes);
 
-app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000');
-});
+//app.listen(3000, () => {
+//  console.log('Server is running on http://localhost:3000');
+//});
 
 export default app;
