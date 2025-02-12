@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -7,10 +8,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import productService from '../services/productService';
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const productService_1 = __importDefault(require("../services/productService"));
 const getProductData = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const data = yield productService.getAll();
+        const data = yield productService_1.default.getAll();
         res.json(data);
     }
     catch (error) {
@@ -18,4 +23,4 @@ const getProductData = (req, res) => __awaiter(void 0, void 0, void 0, function*
         res.status(500).json({ error: 'Failed to fetch data' });
     }
 });
-export default { getProductData };
+exports.default = { getProductData };
