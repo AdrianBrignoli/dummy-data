@@ -18,8 +18,8 @@ app.use(cors());
 // Use API routes
 app.use('/api', productRoutes);
 
-//app.listen(3000, () => {
-//  console.log('Server is running on http://localhost:3000');
-//});
+app.listen(10000, () => {
+  console.log('Server is running on port 10000');
+});
 
 export default app;
