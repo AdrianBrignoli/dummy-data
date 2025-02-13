@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import productRoutes from './routes/productRoutes';
+import errorHandler from './middleware/errorHandler';
+import authMiddleware from './middleware/authMiddleware';
 
 dotenv.config();
 
@@ -17,6 +19,8 @@ app.use(cors());
 
 // Use API routes
 app.use('/api', productRoutes);
+
+app.use(errorHandler);
 
 app.listen(10000, () => {
   console.log('Server is running on port 10000');
