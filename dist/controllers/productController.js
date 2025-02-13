@@ -13,13 +13,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductController = void 0;
-const ProductModel_1 = require("../models/ProductModel");
+const ProductModel_1 = __importDefault(require("../models/ProductModel"));
 const CustomError_1 = __importDefault(require("../utils/CustomError"));
 class ProductController {
     static getAllProducts(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const data = yield ProductModel_1.ProductModel.getAll();
+                const data = yield ProductModel_1.default.getAll();
                 res.json(data);
             }
             catch (error) {
@@ -33,17 +33,14 @@ class ProductController {
                 const id = parseInt(req.params.id, 10);
                 if (isNaN(id)) {
                     throw new CustomError_1.default('Invalid product ID', 404);
-                    // return res.status(404).json({ message: 'Invalid product ID' });
                 }
-                const data = yield ProductModel_1.ProductModel.getProductById(id);
+                const data = yield ProductModel_1.default.getProductById(id);
                 if (!data) {
                     throw new CustomError_1.default('Product not found', 400);
-                    // return res.status(400).json({ message: 'Product not found' });
                 }
                 res.json(data);
             }
             catch (error) {
-                console.log('ADRIAN', error);
                 next(error);
             }
         });

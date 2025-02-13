@@ -1,7 +1,7 @@
 import db from '../config/db';
 import { Product } from '../types/productTypes';
 
-export class ProductModel {
+class ProductModel {
   static async getAll(): Promise<Product[]> {
     return db<Product>('products').select('*');
   }
@@ -10,3 +10,5 @@ export class ProductModel {
     return db<Product>('products').select('*').where({ id }).first();
   }
 }
+
+export default ProductModel;

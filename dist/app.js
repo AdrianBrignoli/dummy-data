@@ -18,8 +18,8 @@ app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 // Use API routes
 app.use('/api', productRoutes_1.default);
+app.use(errorHandler_1.default);
 app.listen(10000, () => {
     console.log('Server is running on port 10000');
 });
-app.use(errorHandler_1.default);
 exports.default = app;
