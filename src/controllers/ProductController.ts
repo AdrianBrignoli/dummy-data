@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import ProductModel from '../models/productModel';
+import ProductModel from '../models/ProductModel';
 import CustomError from '../utils/CustomError';
 
 export class ProductController {
